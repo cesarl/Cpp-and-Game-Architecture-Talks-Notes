@@ -122,6 +122,12 @@ namespace Meta
 	{
 		enum { result = 1 };		
 	};
+
+};
+
+namespace ExpressionTemplates
+{
+// stop at 29:59
 };
 
 namespace MetaProg
@@ -153,6 +159,7 @@ namespace MetaProg
 			std::cout << "12 is even " << Meta::IsEven<12>::value << std::endl;
 
 			std::cout << "Factorial of 16 is " << Meta::Factorial<12>::result << std::endl;
+
 		}
 
 	}
