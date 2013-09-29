@@ -110,11 +110,22 @@ namespace Meta
 		static const bool value = i  % 2 == 0; // static const bevause only static const integral data members
 		// can be initialized within a class
 	};
+
+	template <unsigned int i>
+	struct Factorial
+	{
+		enum { result = i * Factorial<i - 1>::result };
+	};
+
+	template <>
+	struct Factorial<1>
+	{
+		enum { result = 1 };		
+	};
 };
 
 namespace MetaProg
 {
-
 	void Test()
 	{
 		{
@@ -140,6 +151,8 @@ namespace MetaProg
 			std::cout << "10 is even " << Meta::IsEven<10>::value << std::endl;
 			std::cout << "11 is even " << Meta::IsEven<11>::value << std::endl;
 			std::cout << "12 is even " << Meta::IsEven<12>::value << std::endl;
+
+			std::cout << "Factorial of 16 is " << Meta::Factorial<12>::result << std::endl;
 		}
 
 	}
