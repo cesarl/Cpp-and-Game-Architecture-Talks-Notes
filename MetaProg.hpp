@@ -125,9 +125,18 @@ namespace Meta
 
 };
 
-namespace ExpressionTemplates
+namespace SFINAE
 {
-// stop at 29:59
+	struct MyStruct
+	{
+		typedef int foo;
+	};	
+
+	template <typename T>
+	void f(typename T::foo) {}
+
+	template <typename T>
+	void f(typename T) {}
 };
 
 namespace MetaProg
@@ -152,7 +161,7 @@ namespace MetaProg
 		}
 
 		{
-			std::cout  << std::endl <<"CRTP test ->  Metaprog" << std::endl;
+			std::cout  << std::endl <<"Metaprog tests" << std::endl;
 
 			std::cout << "10 is even " << Meta::IsEven<10>::value << std::endl;
 			std::cout << "11 is even " << Meta::IsEven<11>::value << std::endl;
@@ -162,6 +171,11 @@ namespace MetaProg
 
 		}
 
+		{
+			std::cout  << std::endl <<"SFINAE" << std::endl;
+			SFINAE::f<SFINAE::MyStruct>(20);
+			SFINAE::f<int>(10);
+		}
 	}
 
 };
