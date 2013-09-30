@@ -4,7 +4,7 @@
 
 /*
 
-Notes from : Templates and Metaprogramming
+Notes from : Templates and Metaprogramming - Game Engine Architecture Club
 
 www.youtube.com/watch?v=dyHWVQE3Oo4
 
